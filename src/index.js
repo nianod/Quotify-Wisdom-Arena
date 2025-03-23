@@ -1,12 +1,12 @@
-const apiUrl = 'https://api.quotable.io/random';  //QUOTE API
+// const apiUrl = 'https://api.quotable.io/random';  //QUOTE API
 
-async function fetchRandoQuote() {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    return data.content    
-} catch (error) {
-    
-}
+// async function fetchRandoQuote() {
+//     const response = await fetch(apiUrl);
+//     const data = await response.json();
+//     return data.content    
+// } catch (error) {
+
+// }
 
 
 
