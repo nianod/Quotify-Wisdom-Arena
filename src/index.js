@@ -2,7 +2,7 @@ let quotes = [
     "Sometimes we will never know the true value of a moment untill it becomes a memory",
     "Follow your curiosity",
     "A goal without a plan is just a wish",
-    "Never talk about your riches in the midst if the poor",
+    "Never talk about your riches in the midst of the poor",
     "Get paid. Not played",
     "Break some rules",
     "Don't be afraid to fail",
@@ -15,6 +15,9 @@ const generate = document.getElementById("submitBtn");
 
 
 function generateQuote() {
+    if(noRepeat.size >= quotes.length) {
+        noRepeat.clear();
+    }
     while(true) {
     let randomQuote = Math.floor(Math.random() * quotes.length);
 
