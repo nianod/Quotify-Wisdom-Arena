@@ -1,3 +1,17 @@
+const apiUrl = 'https://api.quotable.io/random';  //QUOTE API
+
+async function fetchRandoQuote() {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.content    
+} catch (error) {
+    
+}
+
+
+
+
+// Create an array of quotes
 let quotes = [
     "Sometimes we will never know the true value of a moment untill it becomes a memory",
     "Follow your curiosity",
@@ -6,7 +20,8 @@ let quotes = [
     "Get paid. Not played",
     "Break some rules",
     "Don't be afraid to fail",
-    "Stay humble, Good times will come"
+    "Stay humble, Good times will come",
+    "Love your family, work super hard, live your passion"
     // more quotes to be added
 ]
 const noRepeat = new Set();
