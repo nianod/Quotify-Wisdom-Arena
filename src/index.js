@@ -24,7 +24,7 @@ let quotes = [
     "Love your family, work super hard, live your passion"
     // more quotes to be added
 ]
-const uniqueIndex = new Set(); //prevent repeating the same quote immediately.
+const uniqueIndex = new Set();  
 const showQuote = document.getElementById("getQuote");
 const generate = document.getElementById("submitBtn");
 
