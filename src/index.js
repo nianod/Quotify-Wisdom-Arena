@@ -24,23 +24,23 @@ let quotes = [
     "Love your family, work super hard, live your passion"
     // more quotes to be added
 ]
-const noRepeat = new Set();
+const uniqueIndex = new Set(); //prevent repeating the same quote immediately.
 const showQuote = document.getElementById("getQuote");
 const generate = document.getElementById("submitBtn");
 
 
 function generateQuote() {
-    if(noRepeat.size >= quotes.length) {
-        noRepeat.clear();
+    if(uniqueIndex.size >= quotes.length) {
+        uniqueIndex.clear();
     }
     while(true) {
     let randomQuote = Math.floor(Math.random() * quotes.length);
 
-    if(noRepeat.has(randomQuote)) continue
+    if(uniqueIndex.has(randomQuote)) continue
 
     let quote = quotes[randomQuote]
     showQuote.innerHTML = quote;
-    noRepeat.add(randomQuote)
+    uniqueIndex.add(randomQuote)
     break
     }
 }
