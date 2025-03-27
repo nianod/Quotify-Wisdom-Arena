@@ -27,8 +27,6 @@ let quotes = [
 const uniqueIndex = new Set();  
 const showQuote = document.getElementById("getQuote");
 const generate = document.getElementById("submitBtn");
-
-
 function generateQuote() {
     if(uniqueIndex.size >= quotes.length) {
         uniqueIndex.clear();
@@ -45,3 +43,25 @@ function generateQuote() {
     }
 }
 generate.onclick = generateQuote;
+
+
+
+            //ALTERNATIVE
+            
+// const generateQuote = () => {
+//     generate.addEventListener("click", () => {
+//         if(uniqueIndex.size >= quotes.length) {
+//             uniqueIndex.clear();
+//         }
+//         while(true) {
+//         let randomQuote = Math.floor(Math.random() * quotes.length);
+    
+//         if(uniqueIndex.has(randomQuote)) continue
+    
+//         let quote = quotes[randomQuote]
+//         showQuote.innerHTML = quote;
+//         uniqueIndex.add(randomQuote)
+//         break
+//         }
+//     })
+// }
