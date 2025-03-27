@@ -1,4 +1,4 @@
-const apiUrl = 'https://api.quotable.io/random';  //QUOTE API
+const apiUrl = 'https://type.fit/api/quotes';  //QUOTE API
 
 async function fetchRandoQuote() {
     try {
@@ -31,21 +31,26 @@ let quotes = [
 const uniqueIndex = new Set();  
 const showQuote = document.getElementById("getQuote");
 const generate = document.getElementById("submitBtn");
-function generateQuote() {
-    if(uniqueIndex.size >= quotes.length) {
-        uniqueIndex.clear();
-    }
-    while(true) {
-    let randomQuote = Math.floor(Math.random() * quotes.length);
-
-    if(uniqueIndex.has(randomQuote)) continue
-
-    let quote = quotes[randomQuote]
-    showQuote.innerHTML = quote;
-    uniqueIndex.add(randomQuote)
-    break
+async function generateQuote() {
+    if (Math.random() > 0.5) {
+        showQuote.innerHTML = "Loading...";
+        let newQuote = await fetchRandoQuote();
+        showQuote.innerHTML = newQuote;
+    } else {
+        if (uniqueIndex.size >= quotes.length) {
+            uniqueIndex.clear();
+        }
+        while (true) {
+            let randomQuote = Math.floor(Math.random() * quotes.length);
+            if (uniqueIndex.has(randomQuote)) continue;
+            let quote = quotes[randomQuote];
+            showQuote.innerHTML = quote;
+            uniqueIndex.add(randomQuote);
+            break;
+        }
     }
 }
+
 generate.onclick = generateQuote;
 
 
