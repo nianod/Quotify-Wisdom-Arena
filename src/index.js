@@ -1,11 +1,17 @@
 const apiUrl = 'https://type.fit/api/quotes';  //QUOTE API
 
 async function fetchRandoQuote() {
+
     try {
+
     const response = await fetch(apiUrl);
+
     const data = await response.json();
     return data.content    
+
+
 } catch (error) {
+    
     console.log("Error fetching quote", error);
     return "Failed to fetch quote";
 
@@ -29,22 +35,38 @@ let quotes = [
     // more quotes to be added
 ]
 const uniqueIndex = new Set();  
+
+
 const showQuote = document.getElementById("getQuote");
+
+
 const generate = document.getElementById("submitBtn");
+
 async function generateQuote() {
+
     if (Math.random() > 0.5) {
+
         showQuote.innerHTML = "Loading...";
+
         let newQuote = await fetchRandoQuote();
+
         showQuote.innerHTML = newQuote;
+
     } else {
         if (uniqueIndex.size >= quotes.length) {
+
             uniqueIndex.clear();
+
         }
         while (true) {
             let randomQuote = Math.floor(Math.random() * quotes.length);
+
             if (uniqueIndex.has(randomQuote)) continue;
+
             let quote = quotes[randomQuote];
+
             showQuote.innerHTML = quote;
+
             uniqueIndex.add(randomQuote);
             break;
         }
